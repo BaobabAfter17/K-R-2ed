@@ -1,17 +1,13 @@
 #include <stdio.h>
 
-#define SIZELIMIT 1000
-
-void itob(int n, char s[], int b);
-void reverse(char s[]);
+int trim(char s[]);
 
 /* test itob */
 int main()
 {
-    int n = 9090;
-    int b = 16;
-    char s[SIZELIMIT];
+    char s[] = "abd    ";
+    int n;
 
-    itob(n, s, b);
-    printf("%d convert to: %s\n", n, s);
+    n = trim(s);
+    printf("%d, |%s|\n", n, s);
 }
