@@ -1,21 +1,12 @@
 #include <stdio.h>
-#define MAXLINE 1000    /* maximum input line length */
 
-int my_getline(char line[], int max);
-int strindex(char source[], char searchfor[]);
+int strrindex(char s[], char t[]);
 
-char pattern[] = "ould";    /*pattern to search for */
-
-/* find all lines matching pattern */
+/* test strrindex */
 int main()
 {
-    char line[MAXLINE];
-    int found = 0;
-
-    while (my_getline(line, MAXLINE) > 0)
-        if (strindex(line, pattern) >= 0) {
-            printf("%s", line);
-            found++;
-        }
-    return found;
+    char s[] = "how could we ould he";
+    char t[] = "ould";
+    int index = strrindex(s, t);
+    printf("%d", index);
 }
