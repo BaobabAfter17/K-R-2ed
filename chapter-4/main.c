@@ -1,12 +1,11 @@
 #include <stdio.h>
 
-int strrindex(char s[], char t[]);
+#define MAXLINE 100
 
 /* test strrindex */
 int main()
 {
-    char s[] = "how could we ould he";
-    char t[] = "ould";
-    int index = strrindex(s, t);
-    printf("%d", index);
+    double atof(char s[]);
+
+    printf("%f", atof("123.45e-6"));
 }
