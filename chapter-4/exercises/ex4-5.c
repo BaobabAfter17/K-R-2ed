@@ -124,12 +124,12 @@ int getop(char s[])
         if (c != EOF)
             ungetch(c);
         s[i] = '\0';
-        if (i > 1) /* if more than one letter return MATHFUNC */
+        if (i > 1)
             return MATHFUNC;
-        else    /* if one letter, return the char */
+        else
             return s[0];
     }
-    if (!isdigit(c) && c != '.')
+    if (!isdigit(c) && c != '.')    /* cannot combine with former `if`, see comment there */
         return c;
     if (isdigit(c)) /* collect integer part */
         while (isdigit(s[++i] = c = getch()))
