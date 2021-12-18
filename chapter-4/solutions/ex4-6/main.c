@@ -7,10 +7,13 @@
 /* reverse Polish calculator */
 int main()
 {
-    int type;
-    double op2;
+    int i, type, var = 0;   /* initial var shall not be valid */ 
+    double op2, varialbles[26], v;
     char s[MAXOP];
 
+
+    for (i = 0; i < 26; i++)
+        varialbles[i] = 0.0;
     while ((type = getop(s)) != EOF)
     {
         switch (type)
@@ -35,13 +38,27 @@ int main()
             else
                 printf("error: zero divisor\n");
             break;
+        case '=':
+            pop();  /* revert push via varaible name before '=' */
+            if (var >= 'A' && var <= 'Z')
+                push(varialbles[var - 'A'] = pop());
+            else
+                printf("error: no variable name");
+            break;
         case '\n':
-            printf("\t%.8g\n", pop());
+            v = pop();
+            printf("\t%.8g\n", v);
             break;
         default:
-            printf("error: unknown command %s\n", s);
+            if (type >= 'A' && type <= 'Z')
+                push(varialbles[type - 'A']);
+            else if (type == 'v')
+                push(v);
+            else
+                printf("error: unknown command %s\n", s);
             break;
         }
+        var = type;
     }
     return 0;
 }
