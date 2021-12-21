@@ -11,9 +11,10 @@ int getint(int *pn)
 {
     int c, sign;
 
-    while (isspace(c = getch()))    /* skip white space */
+    while (isspace(c = getch())) /* skip white space */
         ;
-    if (!isdigit(c) && c != EOF && c != '+' && c != '-') {
+    if (!isdigit(c) && c != EOF && c != '+' && c != '-')
+    {
         ungetch(c); /* it is not a number */
         return 0;
     }
@@ -26,4 +27,13 @@ int getint(int *pn)
     if (c != EOF)
         ungetch(c);
     return c;
+}
+
+void swap(int *px, int *py) /* interchange x and y */
+{
+    int temp;
+
+    temp = *px;
+    *px = *py;
+    *py = temp;
 }
