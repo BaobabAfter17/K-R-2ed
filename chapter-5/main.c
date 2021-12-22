@@ -1,15 +1,16 @@
 #include <stdio.h>
 
-#define SIZE 100 /* size of float array */
+#define MAXSIZE 100
 
-int getfloat(float *);
+void my_strncpy(char *s, char *t, int n);
+void my_strncat(char *s, char *t, int n);
+int my_strncmp(char *s, char *t, int n);
 
-/* test getfloat */
 int main()
 {
-    int n, getfloat(float *);
-    float array[SIZE];
+    char s[] = "hellx,";
+    char t[] = "hellx";
+    int n = 10;
 
-    for (n = 0; n < SIZE && getfloat(&array[n]) != EOF; n++)
-        printf("%f\n", array[n]);
+    printf("%d\n", my_strncmp(s, t, n));
 }
