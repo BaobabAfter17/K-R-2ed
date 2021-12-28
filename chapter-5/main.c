@@ -1,12 +1,8 @@
 #include <stdio.h>
 
-#define MAXSIZE 100
-
-double atof(char *);
-
 int main()
 {
-    char s[] = "1.2901";
+    char (*p)[] = {"hello", "world", "again"};
 
-    printf("%g\n", atof(s));
+    printf("%lu", sizeof(*p));
 }
